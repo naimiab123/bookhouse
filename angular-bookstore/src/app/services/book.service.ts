@@ -15,11 +15,19 @@ export class BookService {
 
   getBooks(theCategoryId: number): Observable<Book[]> {
     const searchUrl = `${this.baseUrl}/search/categoryid?id= ${theCategoryId}`;
-    return this.http.get<GetResponseBooks>(searchUrl).pipe(
-    map(resp => resp._embedded.books)
-  );
+    return this.getBooksList(searchUrl);
+  
   }
 
+  searchBooks(keyword: string): Observable<Book[]> {
+    const searchUrl = `${this.baseUrl}/search/searchbykeyword?name= ${keyword}`;
+    return this.getBooksList(searchUrl);
+  }
+ private getBooksList(searchUrl) {
+  return this.http.get<GetResponseBooks>(searchUrl).pipe(
+    map(resp => resp._embedded.books)
+  );
+ }
 getBookCategories(): Observable<BookCategory[]> {
 
   return this.http.get<GetResponseBookCategory>(this.categoryUrl).pipe(

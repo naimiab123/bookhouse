@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { BookListComponent } from './components/book-list/book-list.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { BookCategoryComponent } from './components/book-category/book-category.component';
+import { SearchComponent } from './components/search/search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BookListComponent,
     PagenotfoundComponent,
-    BookCategoryComponent
+    BookCategoryComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
